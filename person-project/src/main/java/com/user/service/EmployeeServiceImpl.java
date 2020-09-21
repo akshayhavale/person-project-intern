@@ -29,19 +29,31 @@ public class EmployeeServiceImpl implements EmployeeService {
 		// Emp Detail class as a field so to save Person i need to insert data from
 		// input to new EMP details and use emp repo to save and that saved emp Details
 		// will be added Person and that is saved
-		EmployeeDetails persistDetails = new EmployeeDetails();
-
-		persistDetails.setCompanyName(emp.getEmployeeDetails().getCompanyName());
-		persistDetails.setPosition(emp.getEmployeeDetails().getPosition());
-
-		EmployeeDetails savedEmployeeDetails = employeeRepo.save(persistDetails);
+//		EmployeeDetails persistDetails = new EmployeeDetails();
+//
+//		persistDetails.setCompanyName(emp.getEmployeeDetails().getCompanyName());
+//		persistDetails.setPosition(emp.getEmployeeDetails().getPosition());
+//
+//		EmployeeDetails savedEmployeeDetails = employeeRepo.save(persistDetails);
+//		
+//		Person persistPerson = new Person();
+//		
+//		persistPerson.setName(emp.getName());
+//		persistPerson.setEmployeeDetails(savedEmployeeDetails);
+//		
+//		return personRepo.save(persistPerson);
 		
-		Person persistPerson = new Person();
+		//for below to use the create JSON is {
+//	    
+//	    "name": "RAMAN",
+//	    "employeeDetails": {
+//	        "id": 0,
+//	        "companyName": "JAVA STOCK",
+//	        "position": "BIG DATA DEVELOPER"
+//	    }
+//	}
 		
-		persistPerson.setName(emp.getName());
-		persistPerson.setEmployeeDetails(savedEmployeeDetails);
-		
-		return personRepo.save(persistPerson);
+		return personRepo.save(emp);
 
 	}
 

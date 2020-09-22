@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -20,12 +19,14 @@ public class Person {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private long id;
-	
+
 	@Column(name = "name")
 	private String name;
-	
+
+	@Column(name = "salary")
+	private Double salary;
+
 	@OneToOne
-	@JoinColumn
 	@Cascade(CascadeType.ALL)
 	private EmployeeDetails employeeDetails;
 
@@ -52,6 +53,13 @@ public class Person {
 	public void setEmployeeDetails(EmployeeDetails employeeDetails) {
 		this.employeeDetails = employeeDetails;
 	}
-	
-	
+
+	public Double getSalary() {
+		return salary;
+	}
+
+	public void setSalary(Double salary) {
+		this.salary = salary;
+	}
+
 }
